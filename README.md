@@ -1,1 +1,1 @@
-# LEXY_seqmentation
+# LEXY_segmentation
