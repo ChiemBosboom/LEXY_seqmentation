@@ -14,10 +14,9 @@ The project is organized into a data processing pipeline, model implementations,
     *   It also contains the logic for generating the synthetic video sequences that mimic the cell translocation and intensity changes observed in the real LEXY videos.
 
 *   **`Models/`**
-    *   This directory contains the PyTorch implementations of the neural network architectures used in the study.
-    *   `u_net_hpa.py` / `u_net_lexy.py`: Implementations of the U-Net architecture with different backbones (vanilla, VGG16, ResNet34) for training on the HPA and LEXY datasets.
-    *   `tracknet_hpa.py` / `tracknet_lexy.py`: Implementation of Track-Net, which extends U-Net by using the mask from the previous frame as an additional input channel.
-    *   `siamnet_hpa.py` / `siamnet_lexy.py`: Implementation of Siam-Net, a Siamese architecture that uses a second encoder branch to process a reference frame and mask.
+    *   This directory contains the PyTorch implementations of the neural network architectures and the training scripts. The model architectures are consistent across files, but the scripts are tailored for different datasets and experimental setups.
+    *   `u_net_hpa.py`, `tracknet_hpa.py`, `siamnet_hpa.py`: These are the primary training scripts for the large HPA dataset. They use a standard train/validation split and also include code for evaluating performance on the synthetic HPA video sequences.
+    *   `u_net_lexy.py`, `tracknet_lexy.py`, `siamnet_lexy.py`: These are specialized scripts for the LEXY dataset. They handle the loading and preprocessing of raw `.tif` files and use cross-validation for evaluation. They can also load model weights pre-trained on the HPA dataset.
 
 *   **`Results/`**
     *   This directory contains the output `.txt` files from the model evaluation experiments.
